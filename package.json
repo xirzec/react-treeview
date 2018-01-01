@@ -1,0 +1,19 @@
+{
+  "name": "react-treeview",
+  "version": "1.0.0",
+  "description": "An example of how to implement a simple tree view control where any node can be updated.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xirzec/react-treeview.git"
+  },
+  "author": "Jeff Fisher",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/xirzec/react-treeview/issues"
+  },
+  "homepage": "https://github.com/xirzec/react-treeview#readme"
+}
