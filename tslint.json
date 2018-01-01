@@ -1,0 +1,30 @@
+{
+    "extends": ["tslint:latest", "tslint-react"],
+    "rules": {
+        "no-implicit-dependencies": false,
+        "variable-name": [ true, "ban-keywords", "check-format","allow-pascal-case", "allow-leading-underscore"],
+        "max-line-length": [
+            true,
+            140
+        ],
+        "eofline": false,
+        "arrow-parens": false,
+        "switch-default": false,
+        "object-literal-key-quotes": [
+            true,
+            "as-needed"
+        ],
+        "whitespace": [
+            true,
+            "check-branch",
+            "check-decl",
+            "check-module",
+            "check-operator",
+            "check-separator",
+            "check-type",
+            "check-typecast"
+        ],
+        "no-parameter-reassignment": true
+    },
+    "rulesDirectory": []
+}

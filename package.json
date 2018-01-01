@@ -4,6 +4,9 @@
   "description": "An example of how to implement a simple tree view control where any node can be updated.",
   "main": "index.js",
   "scripts": {
+    "build": "webpack",
+    "start": "webpack-dev-server --config webpack.config.js",
+    "lint": "tslint --project tsconfig.json",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -15,5 +18,20 @@
   "bugs": {
     "url": "https://github.com/xirzec/react-treeview/issues"
   },
-  "homepage": "https://github.com/xirzec/react-treeview#readme"
+  "homepage": "https://github.com/xirzec/react-treeview#readme",
+  "devDependencies": {
+    "@types/react": "16.0.31",
+    "@types/react-dom": "16.0.3",
+    "immutable": "3.8.2",
+    "react": "16.2.0",
+    "react-dom": "16.2.0",
+    "react-redux": "5.0.6",
+    "redux": "3.7.2",
+    "ts-loader": "3.2.0",
+    "tslint": "5.8.0",
+    "tslint-react": "3.3.3",
+    "typescript": "2.6.2",
+    "webpack": "3.10.0",
+    "webpack-dev-server": "2.9.7"
+  }
 }
