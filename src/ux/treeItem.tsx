@@ -8,6 +8,8 @@ export interface ITreeItemProps {
     map: INodeMap;
     item: INode;
     onItemClick: (evt: React.MouseEvent<HTMLDivElement>, id: string) => void;
+    // if there is a sibling item that is expandable, so leave room for its icon
+    sizeForExpandable: boolean;
 }
 
 export interface ITreeItemState {
@@ -30,9 +32,10 @@ export default class TreeItem extends React.PureComponent<ITreeItemProps, ITreeI
         let icon: JSX.Element | undefined;
         let footer: JSX.Element | undefined;
         let child: JSX.Element | undefined;
+        let marginLeft = 0;
         if (hasChildren && expanded) {
             icon = <TreeExpandedIcon/>;
-            footer = <div>&lt;node&gt;</div>;
+            footer = <div style={{marginLeft: 16}}>&lt;node&gt;</div>;
             child = (
                 <TreeLevel
                     map={this.props.map}
@@ -43,16 +46,20 @@ export default class TreeItem extends React.PureComponent<ITreeItemProps, ITreeI
             );
         } else if (hasChildren) {
             icon = <TreeCollapsedIcon/>;
+        } else {
+            marginLeft = this.props.sizeForExpandable ? 16 : 8;
         }
         return (
             <div onClick={this.onClick}>
-                <div>
+                <div style={{display: "flex"}}>
                     {icon}
-                    &lt;node
-                    id="{item.id}"
-                    updateCount="{item.updateCount}"
-                    childCount="{item.children.size}"
-                    {expanded ? "" : "/"}&gt;
+                    <div style={{marginLeft}}>
+                        &lt;node
+                        id="{item.id}"
+                        updateCount="{item.updateCount}"
+                        childCount="{item.children.size}"
+                        {expanded ? "" : "/"}&gt;
+                    </div>
                 </div>
                 {child}
                 {footer}

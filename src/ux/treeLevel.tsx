@@ -21,8 +21,26 @@ export default class TreeLevel extends React.PureComponent<ITreeLevelProps> {
     }
 
     private getItems(): JSX.Element[] {
+        const map = this.props.map;
+        const someChildExpandable = this.props.items.some(item => {
+            return item.children.some(child => {
+                if (child) {
+                    return map.get(child).children.size > 0;
+                } else {
+                    return false;
+                }
+            });
+        });
         return this.props.items.map(item => {
-            return <TreeItem key={item.id} item={item} map={this.props.map} onItemClick={this.props.onItemClick} />;
+            return (
+                <TreeItem
+                    key={item.id}
+                    item={item}
+                    map={this.props.map}
+                    onItemClick={this.props.onItemClick}
+                    sizeForExpandable={someChildExpandable}
+                />
+            );
         });
     }
 }
