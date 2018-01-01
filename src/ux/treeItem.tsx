@@ -10,6 +10,10 @@ export interface ITreeItemProps {
 export default class TreeLevel extends React.PureComponent<ITreeItemProps> {
     public render() {
         const item = this.props.item;
-        return <div>&lt;{item.id} clickCount="{item.clickCount}"&gt;</div>;
+        return <div onClick={this.onClick}>&lt;{item.id} clickCount="{item.clickCount}"&gt;</div>;
+    }
+
+    private onClick = (evt: React.MouseEvent<HTMLDivElement>) => {
+        this.props.onItemClick(evt, this.props.item.id);
     }
 }
