@@ -23,6 +23,7 @@ export class Main extends React.PureComponent<IConnectedProps & IDispatchProps> 
         return (
             <div>
                 <p>Click nodes to expand/collapse them.</p>
+                <p>Alt-Click to update a node.</p>
                 <p>Shift-Click to add a child.</p>
                 <p>Ctrl-Click to remove a node.</p>
                 <TreeLevel map={this.props.nodes} items={[root]} onItemClick={this.onNodeClick} />
@@ -35,7 +36,7 @@ export class Main extends React.PureComponent<IConnectedProps & IDispatchProps> 
             this.props.onRemoveNode(id);
         } else if (event.shiftKey) {
             this.props.onAddChild(id);
-        } else {
+        } else if (event.altKey) {
             this.props.onUpdateNode(id);
         }
     }

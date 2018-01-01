@@ -7,7 +7,7 @@ export const EMPTY_CHILD_LIST = Immutable.OrderedSet<string>();
 
 export const INITIAL_ROOT_NODE: INode = Object.freeze<INode>({
     id: ROOT_ID,
-    clickCount: 0,
+    updateCount: 0,
     children: EMPTY_CHILD_LIST,
     parent: "",
 });

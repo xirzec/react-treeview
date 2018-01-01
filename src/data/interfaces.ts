@@ -2,7 +2,7 @@ import * as Immutable from "immutable";
 
 export interface INode {
     id: string;
-    clickCount: number;
+    updateCount: number;
     children: Immutable.OrderedSet<string>;
     parent: string;
 }

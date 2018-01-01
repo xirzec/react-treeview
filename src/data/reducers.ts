@@ -15,7 +15,7 @@ export function node(state = INITIAL_TREE_STATE, action: IAction): INodeMap {
         case "UPDATE_NODE": {
             const current = state.get(action.id);
             const updatedNode = { ... current };
-            updatedNode.clickCount++;
+            updatedNode.updateCount++;
             return state.set(updatedNode.id, Object.freeze(updatedNode));
         }
         case "ADD_CHILD": {
@@ -23,10 +23,13 @@ export function node(state = INITIAL_TREE_STATE, action: IAction): INodeMap {
             const newNode: INode = {
                 id: nextNodeId(),
                 children: EMPTY_CHILD_LIST,
-                clickCount: 0,
+                updateCount: 0,
                 parent: parent.id,
             };
-            return state.set(newNode.id, Object.freeze(newNode));
+            const updatedParent = { ... parent };
+            updatedParent.children = parent.children.add(newNode.id);
+            const newState = state.set(updatedParent.id, Object.freeze(updatedParent));
+            return newState.set(newNode.id, Object.freeze(newNode));
         }
         case "REMOVE_NODE": {
             if (action.id === ROOT_ID) {
