@@ -6,7 +6,7 @@
   "scripts": {
     "build": "webpack",
     "start": "webpack-dev-server --config webpack.config.js",
-    "lint": "tslint --project tsconfig.json",
+    "lint": "tslint --project tsconfig.json --config tslint.json",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -22,11 +22,13 @@
   "devDependencies": {
     "@types/react": "16.0.31",
     "@types/react-dom": "16.0.3",
+    "@types/react-redux": "5.0.14",
     "immutable": "3.8.2",
     "react": "16.2.0",
     "react-dom": "16.2.0",
     "react-redux": "5.0.6",
     "redux": "3.7.2",
+    "redux-thunk": "2.2.0",
     "ts-loader": "3.2.0",
     "tslint": "5.8.0",
     "tslint-react": "3.3.3",
