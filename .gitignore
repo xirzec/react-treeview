@@ -1,0 +1,11 @@
+# for gh-pages, we ignore most of everything
+
+node_modules
+public
+src
+package.json
+package-lock.json
+README.md
+tsconfig.json
+tslint.json
+webpack.config.js
